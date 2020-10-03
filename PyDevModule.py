@@ -45,12 +45,20 @@ print('button is enabled',login.is_enabled())
 time.sleep(1)
 login.click()
 
-
 depunere = None
-depunere = driver.find_element_by_css_selector(".nav-link-title")
-
-if not depunere:
-	depunere = driver.find_element_by_link_text("Depunere")
+try:
+	depunere = driver.find_element_by_xpath('//a[@href='+'#/submission/list-applications'+']')
+except:
+	try:
+		depunere = driver.find_element_by_xpath('//*[@id="container-1"]/fuse-sidebar/navbar/navbar-vertical-style-1/div[2]/div[1]/fuse-navigation/div/fuse-nav-vertical-group/div[2]/fuse-nav-vertical-item/a')
+	except:
+		try:
+			depunere = driver.find_element_by_css_selector("a[href='#/submission/list-applications']")
+		except:
+			try:
+				depunere = driver.find_element_by_xpath('//a[contains(@href,"#/submission/list-applications")]')
+			except:
+				depunere = driver.find_element_by_partial_link_text('list-applications')
 
 if not depunere:
 	print("SUCK A DICK")
