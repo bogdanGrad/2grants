@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-user_name = "grad.bogdan@gmail.com"
-password = "Riptide123"
+user_name = "xxxxxx"
+password = "xxxxx"
 driver = webdriver.Chrome(executable_path='/Users/bogdangrad/work/grants/chromedriver')
 driver.get("https://www.facebook.com/")
 element = driver.find_element_by_id("email")
